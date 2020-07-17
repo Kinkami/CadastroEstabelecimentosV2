@@ -1,0 +1,122 @@
+﻿@model IEnumerable<FitCardTesteV2.Models.Estabelecimento>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div class="row responsive-custom " style="padding:5px;margin-left:5px;margin-right:5px;">
+    <div class="col-11">
+        <h3 class="text-info">Controle de Estabelecimentos</h3>
+    </div>
+    <div class="col-1">
+        <a asp-action="Create" class="btn btn-info form-control text-white btn-sm float-right">Novo</a>
+    </div>
+    <div class="col-12 p-3 mt-3" style="width:100%">
+        @if (Model.Count() > 0)
+        {
+            <table id="tblEstabelecimentos" class="table table-striped border">
+                <thead>
+                    <tr class="table-secondary">
+                        <th>
+                            @Html.DisplayNameFor(model => model.RazaoSocial)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NomeFantasia)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CNPJ)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Endereco)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Cidade)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Estado)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Telefone)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DataDeCadastro)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Categoria)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Agencia)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Conta)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RazaoSocial)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NomeFantasia)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CNPJ)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Endereco)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cidade)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Estado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Telefone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataDeCadastro)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Categoria)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Agencia)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Conta)
+                            </td>
+                            <td>
+                                <a asp-action="Edit"    asp-route-id="@item.Id" class="btn btn-secondary text-white btn-sm">Editar</a>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary text-white btn-sm">Detalhes</a>
+                                <a asp-action="Delete"  asp-route-id="@item.Id" class="btn btn-warning btn-sm">Excluir</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>Nenhum Estabelecimento encontrado, <a asp-action="Create" class="btn-link">clique aqui e cadastre um novo</a></p>
+        }
+    </div>
+</div>
